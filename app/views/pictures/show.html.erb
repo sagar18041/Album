@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @picture.image_url(:thumb) if @picture.image?%>
+</p>
+
+
+<%= link_to 'Edit', edit_folder_picture_path(@folder,@picture) %> |
+<%= link_to 'Back', folder_pictures_path %>
