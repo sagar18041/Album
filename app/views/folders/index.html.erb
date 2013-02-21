@@ -1,24 +1,32 @@
 <h1>Listing folders</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
 
 <% @folders.each do |folder| %>
-  <tr>
-    <td><%= folder.name %></td>
-    <td><%= folder.description %></td>
-    <td><%= link_to 'Show', folder %></td>
-    <td><%= link_to 'Edit', edit_folder_path(folder) %></td>
-    <td><%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <%#= folder.name %>
+    <%#= folder.description %>
+    <%folder.pictures.each do |pic|%>
+      
+        <div class="container">
+          <div class="image_holder">
+            <%=image_tag pic.image_url(:thumb).to_s if pic.image? %>
+          </div>
+          <div class="album_name_holder">
+            <%= folder.name %>
+          </div>
+          <div class="album_desc_holder">
+            <%= folder.description %>
+          </div>
+        </div>
+          <%break%>
+    <%end%>
+    <%= link_to 'Show', folder_pictures_path(folder) %>
+    <%= link_to 'Edit', edit_folder_path(folder) %>
+    <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
 <% end %>
-</table>
+
 
 <br />
 

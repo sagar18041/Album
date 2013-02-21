@@ -7,7 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+      <div id="user_nav">
+        <% if user_signed_in? %>
+          <font class="sign">Signed in as <%= current_user.email %>. Not you?</font>
+          
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+        <% end %>
+        <b class="cancel">X</b>
+      </div>
+      <% if user_signed_in? %>
+        <p align="right"><b><%= link_to "Sign out", destroy_user_session_path %></b></p>
+      <%end%>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
 <%= yield %>
 
 </body>

@@ -18,10 +18,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 gem 'carrierwave'
 gem 'rmagick'
-gem 'devise', '1.1.rc0'
+gem 'devise'
 gem 'jquery-rails'
 gem 'pry'
 

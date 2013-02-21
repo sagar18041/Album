@@ -60,7 +60,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.update_attributes(params[:folder])
-        format.html { redirect_to @folder, notice: 'Folder was successfully updated.' }
+        format.html { redirect_to folder_pictures_path(@folder), notice: 'Folder was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

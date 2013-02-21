@@ -11,3 +11,35 @@
  *= require_self
  *= require_tree .
  */
+ div#user_nav{
+ 	background-color: rgb(150, 240, 150);
+ 	border-style:inset;
+ 	border-bottom-left-radius:10px; 
+ 	border-bottom-right-radius:10px
+
+ }
+ b.cancel{
+ 	text-align: right;
+ }
+ font.sign{
+ 	font-size: 10px;
+ }
+.container {
+ 	height: 150px;
+ 	width: 100px;
+
+  background-color: grey;
+  padding: 20px 40px;
+}
+.image_holder{
+height: 100px;
+width: 90px;
+padding: 
+}
+.album_name_holder{
+
+}
+.album_desc_holder{
+
+}
+
