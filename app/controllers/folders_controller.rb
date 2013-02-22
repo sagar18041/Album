@@ -1,9 +1,10 @@
 class FoldersController < ApplicationController
   # GET /folders
   # GET /folders.json
+
   def index
-    
-    @folders = Folder.all
+    binding.pry
+    @folders = current_user.folder.all
 
     respond_to do |format|
       format.html # index.html.erb

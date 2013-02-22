@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    binding.pry
+    #binding.pry
     @picture = @folder.pictures.new(params[:picture])
 
     respond_to do |format|

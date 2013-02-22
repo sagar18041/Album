@@ -6,7 +6,11 @@
 
 <ul class="thumbnails">
   <% @folders.each do |folder| %>
+  if folder
+  {
     <%folder.pictures.each do |pic|%>
+      if pic
+      {
       <li class="span4">
         <div class="thumbnail">
 
@@ -16,11 +20,13 @@
           <%break%>
         </div>
       </li>
+    }
     <%end%>
     <%= link_to 'Show', folder_pictures_path(folder) %>
     <%= link_to 'Edit', edit_folder_path(folder) %>
     <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
     <br>
+  }
   <% end %>
 </ul>
 <br />
