@@ -5,14 +5,16 @@
 <%= link_to 'Back to Albums', folders_path%> 
 <ul class="thumbnails">
   <% @pictures.each do |picture| %>
+  <%if picture%>
     <li class="span4">
       <div class="thumbnail">
-        <%=image_tag(picture.image_url,:size=>"300x200") if picture.image_url %>
+        <%=image_tag(picture.image_url,:size=>"300x200")  %>
         <%= link_to 'Show', folder_picture_path(@folder,picture) %>
         <%= link_to 'Edit', edit_folder_picture_path(@folder,picture) %>
         <%= link_to 'Destroy', folder_picture_path(@folder,picture), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </li>
+    <%end%>
   <% end %>
 </ul>
 <br />

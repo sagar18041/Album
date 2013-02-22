@@ -15,7 +15,9 @@
 //= require twitter/bootstrap
 //= require_tree .
 $(document).ready(function () {
-	$("b.cancel").click(function(){
-		$("div#user_nav").hide();
+$('#myCarousel').carousel({
+    interval: 2500
+    pause:"hover"
+});
 	})
-})
+

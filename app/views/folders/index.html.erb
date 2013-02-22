@@ -6,28 +6,47 @@
 
 <ul class="thumbnails">
   <% @folders.each do |folder| %>
-  if folder
-  {
+ 
     <%folder.pictures.each do |pic|%>
-      if pic
-      {
+     
       <li class="span4">
         <div class="thumbnail">
-
           <%=image_tag(pic.image_url , :size=>"300x200")%>
           <h3><%= folder.name %></h3>
           <p><%= folder.description %></p>
           <%break%>
         </div>
       </li>
-    }
+ 
     <%end%>
     <%= link_to 'Show', folder_pictures_path(folder) %>
     <%= link_to 'Edit', edit_folder_path(folder) %>
     <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
     <br>
-  }
+ 
   <% end %>
 </ul>
 <br />
+<div class='thumbnails'>
+  <div class="thumbnail">
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
 
+    <% @folders.each do |folder| %>
+      <%folder.pictures.each do |pic|%>
+        <div class="item"><%=image_tag(pic.image_url )%></div>
+      <%end%>
+    <%end%>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+</div>
+</div>
