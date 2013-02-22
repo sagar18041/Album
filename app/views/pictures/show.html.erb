@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Image:</b>
-  <%= image_tag @picture.image_url(:thumb) if @picture.image?%>
+<p class="thumbnails">
+  <div class="span9">
+  	<div class="thumbnail">
+  <%=image_tag(@picture.image_url,:size=>"600x500")%>
+</div>
+</div>
 </p>
 
 

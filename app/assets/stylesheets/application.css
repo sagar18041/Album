@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
- div#user_nav{
+ /*div#user_nav{
  	background-color: rgb(150, 240, 150);
  	border-style:inset;
  	border-bottom-left-radius:10px; 
@@ -41,5 +41,5 @@ padding:
 }
 .album_desc_holder{
 
-}
+}*/
 

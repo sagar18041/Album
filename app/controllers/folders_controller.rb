@@ -2,6 +2,7 @@ class FoldersController < ApplicationController
   # GET /folders
   # GET /folders.json
   def index
+    
     @folders = Folder.all
 
     respond_to do |format|
@@ -44,7 +45,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to folder_pictures_path(@folder), notice: 'Folder was successfully created.' }
+        format.html { redirect_to new_folder_picture_path(@folder), notice: 'Folder was successfully created.' }
         format.json { render json: @folder, status: :created, location: @folder }
       else
         format.html { render action: "new" }

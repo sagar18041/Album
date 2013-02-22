@@ -3,7 +3,8 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   before_filter :load_folder
   def index
-    @pictures = @folder.pictures.all
+
+    @pictures = @folder.pictures.all#.page(params[:page]).per(1)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,12 +42,12 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    #binding.pry
+    binding.pry
     @picture = @folder.pictures.new(params[:picture])
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to folder_picture_path(@folder,@picture), notice: 'Picture was successfully created.' }
+        format.html { redirect_to new_folder_picture_path, notice: 'Picture was successfully created.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to new_folder_picture_path, notice: 'Picture was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

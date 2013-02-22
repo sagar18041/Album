@@ -7,22 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-      <div id="user_nav">
-        <% if user_signed_in? %>
-          <font class="sign">Signed in as <%= current_user.email %>. Not you?</font>
-          
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-        <% end %>
-        <b class="cancel">X</b>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Sagar Albums</a>
+        <div class="nav-collapse">
+ 
+        </div>
       </div>
-      <% if user_signed_in? %>
-        <p align="right"><b><%= link_to "Sign out", destroy_user_session_path %></b></p>
-      <%end%>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-<%= yield %>
+    </div>
+  </div>
 
+
+
+
+
+  <div id="user_nav">
+    <% if user_signed_in? %>
+      <font class="sign">Signed in as <%= current_user.email %>. Not you?</font>
+    
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <% end %>
+    <b class="cancel">X</b>
+  </div>
+  <% if user_signed_in? %>
+    <p class="text-right"><b><%= link_to "Sign out", destroy_user_session_path %></b></p>
+  <%end%>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="span9"><%= yield %></div>
+      <div class="span3"></div>
+    </div>
+    
+  </div>
 </body>
 </html>
