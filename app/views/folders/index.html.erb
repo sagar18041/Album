@@ -1,32 +1,6 @@
 <h1>Albums</h1>
 <%= link_to 'New Album', new_folder_path %>
-
 <br/>
-
-
-<ul class="thumbnails">
-  <% @folders.each do |folder| %>
- 
-    <%folder.pictures.each do |pic|%>
-     
-      <li class="span4">
-        <div class="thumbnail">
-          <%=image_tag(pic.image_url , :size=>"300x200")%>
-          <h3><%= folder.name %></h3>
-          <p><%= folder.description %></p>
-          <%break%>
-        </div>
-      </li>
- 
-    <%end%>
-    <%= link_to 'Show', folder_pictures_path(folder) %>
-    <%= link_to 'Edit', edit_folder_path(folder) %>
-    <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <br>
- 
-  <% end %>
-</ul>
-<br />
 <div class='thumbnails'>
   <div class="thumbnail">
 <div id="myCarousel" class="carousel slide">
@@ -50,3 +24,28 @@
 </div>
 </div>
 </div>
+<br>
+<br>
+
+<ul class="thumbnails pagination">
+  <% @folders.each do |folder| %>
+ 
+    <%folder.pictures.each do |pic|%>
+     
+      <li class="span4">
+        <div class="thumbnail">
+          <%=image_tag(pic.image_url , :size=>"300x200")%>
+          <h3><%= folder.name %></h3>
+          <p><%= folder.description %></p>
+          <%break%>
+        </div>
+      </li>
+ 
+    <%end%>
+    <%= link_to 'Show', folder_pictures_path(folder) %>
+    <%= link_to 'Edit', edit_folder_path(folder) %>
+    <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+  <% end %>
+</ul>
+<br />

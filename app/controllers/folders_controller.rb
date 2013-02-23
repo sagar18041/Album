@@ -4,7 +4,12 @@ class FoldersController < ApplicationController
 
   def index
     #binding.pry
-    @folders = current_user.folder.all
+    if params[:search]
+      @folders = current_user.folder.find_by_name(params[:search])
+    else
+      @folders = current_user.folder.all
+    end
+    
 
     respond_to do |format|
       format.html # index.html.erb

@@ -18,6 +18,9 @@
         <a class="brand" href="#">Sagar Albums</a>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
+          <form class="navbar-search pull-left" method="post"action=<%=folders_path("search")%>>
+            <input type="text" class="search-query" placeholder="Search" name="search">
+          </form>
           <li class="active"><%= link_to "Sign out", destroy_user_session_path,:method=>:delete%></li>
           <%else%>
             <li class="active"><%= link_to "Sign up", new_user_registration_path %></li><li><%= link_to "Sign in", new_user_session_path %></li>
