@@ -38,6 +38,6 @@ gem 'kaminari'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
+#test
 # To use debugger
 # gem 'debugger'
